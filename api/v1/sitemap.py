@@ -12,16 +12,14 @@ from urllib.parse import urlparse
 from fastapi import (
     APIRouter,
     Query, Path,
-    status,
-    Response, Request
+    Request
 )
-from fastapi.templating import Jinja2Templates
 
 
-from starlette.responses import RedirectResponse, HTMLResponse
+from starlette.responses import RedirectResponse
 
 from service.sitemap import SiteMapService
-from core.config import templates
+from core.config import templates, index_url
 from utils import cvert
 
 
@@ -49,5 +47,6 @@ async def content_by_page(
     basepath = urlparse(url_string).path.rsplit("/", maxsplit=1)[0]
     return templates.TemplateResponse(
         "site-map.html",
-        context=cvert.ctx(request=request, digests=digests, pages=pages, basepath=basepath),
+        context=cvert.ctx(request=request, digests=digests, pages=pages, basepath=basepath, index=index_url),
     )
+

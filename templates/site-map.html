@@ -7,6 +7,11 @@
     <link rel="stylesheet" type="text/css" href="/static/css/normalize.css" />
 <body>
 
+<div class="header">
+    <div class="title">SITEMAP</div>
+    <a class="navigation" href="{{ index }}">我的主页</a>
+</div>
+
 {# 正文 #}
 <div class="content">
     {% for item in digests %}
@@ -31,8 +36,9 @@
 </body>
 
 <style>
+
 body {
-    margin: 10vh 10vw;
+    margin: 0 10vw;
 }
 
 a {
@@ -43,9 +49,36 @@ h1 {
     color: #138D75;
 }
 
+ul {
+    padding: 0;
+    margin: 5vh auto;
+}
+
 li {
     display: inline-block;
 }
+
+.header {
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+    font-size: 35px;
+    font-weight: bolder;
+    color: #138D75;
+}
+
+.title {
+    display: inline-block;
+}
+
+.navigation {
+    float: right;
+    font-size: 25px;
+    color: #138D75;
+    padding-bottom: 1vh;
+    border-bottom: 2px solid #138D75;
+}
+
+
 </style>
 
 </html>

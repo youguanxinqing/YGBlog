@@ -44,8 +44,9 @@ def _extract_text(text: str) -> str:
     """
         从 markdown 中提取摘要数据
     """
+    text = text.replace("<!--markdown--><!--index-menu-->", "")
     html = markdown2.markdown(text)
-    plain = html[:200]
+    plain = html
     return plain
 
 
