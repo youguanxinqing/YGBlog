@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>You Guan</title>
+</head>
+    <link rel="stylesheet" type="text/css" href="/static/css/normalize.css" />
+<body>
+
+{# 正文 #}
+<div class="content">
+    {% for item in digests %}
+    <a href="{{ item.url }}">
+        <h1>{{ item.title }}</h1>
+    </a>
+    <p>{{ item.text }}</p>
+    {% endfor %}
+</div>
+
+{# 翻页 #}
+<div class="footer">
+    <ul>
+        {% for no in range(1, pages+1) %}
+        <a href="{{ basepath }}/{{ no }}">
+            <li>{{ no }}</li>
+        </a>
+        {% endfor %}
+    </ul>
+</div>
+
+</body>
+
+<style>
+body {
+    margin: 10vh 10vw;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    color: #138D75;
+}
+
+li {
+    display: inline-block;
+}
+</style>
+
+</html>
